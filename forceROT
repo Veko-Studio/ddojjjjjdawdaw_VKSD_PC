@@ -1,0 +1,5 @@
+local function forceROT(cframe)
+	local SharedStats = require(game:GetService("ReplicatedStorage").ModuIes.SharedStats)
+	SharedStats.RotationCFrame = cframe
+end
+getfenv().forceROT = forceROT
