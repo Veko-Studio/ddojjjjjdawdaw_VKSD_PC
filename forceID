@@ -31,12 +31,13 @@ local function selectBlock(id)
         task.wait(0.1)
         buildGUI2.Bindables.BlockSelected:Fire(id)
         buildGUI2.Bindables.BlockSelected2:Fire(id)
-        task.wait(0.01)
-        if workspace.Camera.BuildObjects:FindFirstChildOfClass("Model").ID.Value ~= id then
+        c = 1
+        repeat 
+            task.wait()
+            c= c+1
             local size = getBoundingBoxSize(blockdef[id].VoxelsUsed);print("3",size)
             game:GetService("Players").LocalPlayer.PlayerGui.BuildGUI2.Bindables.SizeSelected:Fire(size)
-        end
-        task.wait(0.1)
+        until workspace.Camera.BuildObjects:FindFirstChildOfClass("Model").ID.Value == id or c==50
     end
 end
 getfenv().forceID = selectBlock
