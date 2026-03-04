@@ -24,6 +24,7 @@ local function getBoundingBoxSize(vectors)
     return Vector3.new(sizeX, sizeY, sizeZ)
 end
 local function selectBlock(id)
+    game:GetService("Players").LocalPlayer.PlayerGui.BuildGui.EnableBuilding:Fire()
     if workspace.Camera.BuildObjects:FindFirstChildOfClass("Model").ID.Value ~= id then
         game:GetService("Players").LocalPlayer.PlayerGui.BuildGui.EnableBuilding:Fire()
         buildGUI2.Bindables.CategoryPressed:Fire(blockdef[id].Category)
