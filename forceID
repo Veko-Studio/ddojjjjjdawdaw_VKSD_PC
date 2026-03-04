@@ -36,6 +36,7 @@ local function selectBlock(id)
             local size = getBoundingBoxSize(blockdef[id].VoxelsUsed);print("3",size)
             game:GetService("Players").LocalPlayer.PlayerGui.BuildGUI2.Bindables.SizeSelected:Fire(size)
         end
+        task.wait(0.1)
     end
 end
 getfenv().forceID = selectBlock
